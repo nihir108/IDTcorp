@@ -1,0 +1,96 @@
+<label for="ncount">select last n location:</label>
+
+<select id="ncount" onchange="showNelems()">
+    {{#each selectValues}}
+    {{!-- {{#if (eq displayCount this)}}
+    <option value="1">this</option>
+    {{else}}
+    <option value="2">not this</option>
+    {{/if}} --}}
+  <option value="{{@index}}">{{@index}}</option>    
+    {{/each}}
+</select>
+{{#each res1}}
+ <div class="card bg-light text-dark" style="width:400px">
+  <div class="card-body">
+    <h4 class="card-title" name="ip" value={{this.ip}}>IP: {{this.ip}}</h4>
+    <p class="card-text" name="latitude" value={{this.latitude}}>Latitude: {{this.latitude}}</p>
+    <p class="card-text" name="longitude" value={{this.longitude}}>Longitude: {{this.longitude}}</p>
+    <p class="card-text" name="city" value={{this.city}}>City: {{this.city}}</p>
+    <p class="card-text" name="date" value={{this.date}}>Date: {{this.date}}</p>
+    <a href='https://www.google.com/maps/@{{this.latitude}},{{this.longitude}},15z' target="_blank" class="btn btn-primary">get location</a>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#a{{this.id}}">
+  Send SMS
+</button>
+  </div>
+</div>
+
+
+<div class="modal fade" id="a{{this.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Send SMS</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <label for="phone">Phone Number:</label>
+              <input type="text" name="phone" id="phone" placeholder="Enter Phone Number" required>
+                <label>Example :  5515551555</label>
+            </div>
+            <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" onclick="sendSMS('{{this.ip}}','{{this.latitude}}','{{this.longitude}}','{{this.city}}')">Send SMS</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+  {{/each}}
+ 
+<script src="/js/sms.js"></script>
+  {{!-- {{#each res1}}
+ <div class="card bg-light text-dark" style="width:400px">
+  <div class="card-body">
+    <h4 class="card-title" name="ip" value={{this.ip}}>IP: {{this.ip}}</h4>
+    <p class="card-text" name="latitude" value={{this.latitude}}>Latitude: {{this.latitude}}</p>
+    <p class="card-text" name="longitude" value={{this.longitude}}>Longitude: {{this.longitude}}</p>
+    <p class="card-text" name="city" value={{this.city}}>City: {{this.city}}</p>
+    <p class="card-text" name="date" value={{this.date}}>Date: {{this.date}}</p>
+    <a href='https://www.google.com/maps/@{{this.latitude}},{{this.longitude}},15z' class="btn btn-primary">get location</a>
+   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{this.city}}">
+  Open modal
+</button>
+  </div>
+</div>
+
+ 
+
+<!-- The Modal -->
+<div class="modal" id="{{this.city}}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{/each}}  --}}

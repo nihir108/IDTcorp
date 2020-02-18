@@ -1,0 +1,20 @@
+{
+  "name": "idt",
+  "version": "1.0.0",
+  "description": "idt_coding_test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Nihir Patel",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.620.0",
+    "bootstrap": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0"
+  }
+}

@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Enter IP address to get location</h2>
+  <form class="needs-validation" action="/location/" method="post">
+    <div class="form-group">
+      <label for="email">IPv4</label>
+      <input type="text" name="address" id="address" minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$">
+    </div>
+    <div class="col-sm-3">
+                <small id="validateAddress" class="text-danger">
+                </small>
+            </div>
+    <button type="submit" id="getLocation" class="btn btn-primary">get location</button>
+  </form>
+</div>
+
+<script src="/js/location.js"></script>
