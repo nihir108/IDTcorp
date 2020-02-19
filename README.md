@@ -9,3 +9,6 @@ $ npm install
 
 Rename the .env.example file to .env and enter your correct AWS access key, secret and region.
 
+then do
+$ npm start
+
